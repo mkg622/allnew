@@ -5,7 +5,7 @@ public class gugudan {
     Scanner s = new Scanner(System.in);
     do {
       System.out.print("Insert number(0:Exit) : ");
-      int i = s.nextint();
+      int i = s.nextInt();
 
       if(i == 0) {
         System.exit(1);
@@ -14,9 +14,8 @@ public class gugudan {
           System.out.println(i+" * "+j+" = "+i*j);
         }
       } else {
-          System.out.println("Insert Number 2~9. Retype again~!!");
-        }
-      } while(true);
-    }
+        System.out.println("Insert Number 2~9. Retype again~!!");
+      }
+    } while(true);
   }
 }
