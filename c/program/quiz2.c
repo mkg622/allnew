@@ -1,12 +1,15 @@
 #include <stdio.h>
-#include "libcheckprime.a"
+#include "libcheckprime.h"
 
 void main() {
-  int n;
-  printf("input Number : ");
-  scanf("%d" ,&n);
-  if(checkprime(n) == 0)
-  printf("%d is prime number~!! \n" , n);
-else
-  printf("%d is not prime number~!! \n" , n);
+  while (1) {
+    int n;
+    printf("\ninput integer => ");
+    scanf("%d", &n);
+    if(n == 0) break;
+    if(checkprime(n) == n)
+      printf("%d is a prime number \n", n);
+    else
+      printf("%d is not prime number \n" , n);
+  }
 }
