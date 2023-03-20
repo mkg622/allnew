@@ -1,4 +1,4 @@
-int checkprimeeod (int n) {
+int checkprime (int n) {
   int i;
   for (i=2; i <= n; i++) {
     if (n%i == 0)
