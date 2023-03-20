@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # .gitignore
 
 .ftpconfig
@@ -7,3 +8,14 @@ c/**/a.out
 c/**/hello
 c/**/*.o
 c/**/test
+=======
+# .gitignore
+
+.ftpconfig
+
+## c programing
+c/**/a.out
+c/**/hello
+c/**/*.o
+c/**/test
+>>>>>>> c1e5bd1389181a80161132f61595bf0b51ff04c1
