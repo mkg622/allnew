@@ -1,4 +1,4 @@
-use testdb;
+st_infost_infouse testdb;
 show tables;
 
 create table st_info(ST_ID int, NAME varchar(20), DEPT varchar(25)) 
