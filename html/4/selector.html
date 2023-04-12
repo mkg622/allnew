@@ -15,24 +15,28 @@
     }
 
     body.main {
-        background-color: rgb(255, 124, 205);
+        background-color: rgb(251, 255, 210);
     }
 
-    h3 {
+    h3:first-letter {
         color: blue;
     }
 
-    ul {
+    ul strong {
         color: rgb(0, 0, 0);
     }
 
-    strong {
+    div>strong {
+        background-color: antiquewhite;
         font-size: 18px;
-        color: skyblue;
     }
 
     div {
-        color: cadetblue;
+        color: rgb(12, 36, 255);
+    }
+
+    li:hover {
+        background: yellowgreen;
     }
 </style>
 
@@ -43,7 +47,7 @@
         <div>2학기 <strong>학습 내용</strong></div>
         <ul id="list">
             <li>HTML5</li>
-            <li> <strong class="warning">CSS</strong></li>
+            <li> <strong>CSS</strong></li>
             <li>JAVASCRIPT</li>
         </ul>
         <div>60점 이하는 F!</div>
