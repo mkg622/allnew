@@ -25,7 +25,60 @@ app.get("/hello", (req, res) => {
 app.get("/select", (req, res) => {
   const result = connection.query("select * from user");
   console.log(result);
-  res.send(result);
+  // res.send(result);
+  res.writeHead(200);
+  var template = `
+        <!doctype html>
+        <html>
+        <head>
+            <title>Result</title>
+            <meta charset="utf-8">
+            <style>
+table { /* 이중 테두리 제거 */
+border-collapse : collapse; 
+}
+td, th { /* 모든 셀에 적용 */
+text-align : left;
+padding : 5px;
+height : 15px; 
+width : 100px;
+}
+thead, tfoot { /* <thead>의 모든 셀에 적용 */
+background : darkgray;
+color : yellow;
+}
+tbody tr:nth-child(even) { /* 짝수 <tr>에 적용*/
+background : aliceblue;
+}
+tbody tr:hover {
+background : pink;
+}
+</style>
+        </head>
+        <body>
+        <table border="1" style="margin:auto; text-align:center;">
+        <thead>
+            <tr><th>User ID</th><th>Password</th></tr>
+            <h>데이터가 존재하지 않습니다.</h>
+        </thead>
+        <tbody>
+        `;
+  for (var i = 0; i < result.length; i++) {
+    template += `
+        <tr>
+            <td>${result[i]['userid']}</td>
+            <td>${result[i]['passwd']}</td>
+        </tr>
+        `;
+  }
+  template += `
+        </tbody>
+        </table>
+        </body>
+        </html>
+    `;
+  res.end(template);
+
 });
 
 // request1, query 0
