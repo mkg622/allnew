@@ -59,7 +59,6 @@ background : pink;
         <table border="1" style="margin:auto; text-align:center;">
         <thead>
             <tr><th>User ID</th><th>Password</th></tr>
-            <h>데이터가 존재하지 않습니다.</h>
         </thead>
         <tbody>
         `;
