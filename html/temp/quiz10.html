@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>하이퍼 카와 일반차량 비교하기</title>
+    <script>
+        function Car(brand, grade, maxFuel, displacement, price) {
+            this.brand = brand;
+            this.grade = grade;
+            this.maxFuel = maxFuel;
+            this.displacement = displacement;
+            this.price = price;
+
+            this.leftoverFuel = maxFuel;
+
+            this.info = function () {
+                document.write(`
+            brand : ${this.brand}<br>
+            grade : ${this.grade}<br>
+            maxfuel : ${this.maxFuel}<br>
+            displacement : ${this.displacement}<br>
+            price : ${this.price}<br><hr>`);
+            };
+
+            this.drive = function (from, to, distance) {
+                this.leftoverFuel -= distance;
+                document.write(
+                    `${this.brand} 차량이 ${from}에서 ${to}까지 ${distance}Km 주행하셨습니다.<br>`
+                );
+                if (this.leftoverFuel > 50)
+                    document.write(
+                        `잔여 연료량은 ${this.leftoverFuel}입니다. <br><hr />`
+                    );
+                else
+                    document.write(
+                        `잔여 연료량은 ${this.leftoverFuel}입니다. <br> 주유가 필요합니다. <br><hr />`
+                    );
+            };
+
+            this.refueling = function (amount) {
+                this.leftoverFuel += amount;
+                document.write(
+                    `${amount}L 주유하여 잔여 연료량은 ${this.leftoverFuel}입니다. <br><hr />`
+                );
+            };
+        }
+    </script>
+</head>
+
+<body>
+    <h3>하이퍼 카와 일반차량 비교하기</h3>
+    <hr />
+    <script>
+        let Koenigsegg = new Car("Koenigsegg", "supercar", 800, 4000, 3000000);
+        Koenigsegg.info();
+        Koenigsegg.drive("Seoul", "Busan", 400);
+        Koenigsegg.drive("Busan", "Incheon", 460);
+        Koenigsegg.refueling(860);
+
+        let kia = new Car("Kia", "Sedan", 500, 2500, 20000);
+        kia.info();
+        kia.drive("Seoul", "Daejeon", 300);
+        kia.refueling(200);
+        kia.drive("Daejeon", "Seoul", 300);
+    </script>
+</body>
+
+</html>
