@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>3글자</title>
+</head>
+
+<body>
+    <div style="position: absolute; width: 100%">
+        <h5 style="text-align: center">토마토 인도인 스위스</h5>
+
+        <div style="
+          text-align: center;
+          border: 3px solid rgb(255, 248, 150);
+          width: 60%;
+          position: relative;
+          top: 30%;
+          bottom: 30%;
+          left: 20%;
+          padding: 40px auto;
+        ">
+            <div style="position: relative; top: 40%">
+                <input type="radio" name="choice" value="토마토" />토마토
+                <input type="radio" name="choice" value="인도인" checked="checked" />인도인 <input type="radio" name="choice"
+                    value="스위스" />스위스
+
+                <br />
+                <br />
+                <button onclick="play()">Play</button>
+                <button onclick="reset()">reset</button>
+            </div>
+        </div>
+
+        <h1 id="result" style="text-align: center"></h1>
+    </div>
+    <script>
+        function play() {
+            const choices = document.getElementsByName("choice");
+            let userChoice;
+            for (let i = 0; i < choices.length; i++) {
+                if (choices[i].checked) {
+                    userChoice = choices[i].value;
+                    break;
+                }
+            }
+
+            const computerChoice = ["스위스", "인도인", "토마토"][
+                Math.floor(Math.random() * 3)
+            ];
+
+            let result;
+            if (userChoice === computerChoice) {
+                result = "사람임 ? ";
+            } else if (
+                (userChoice === "토마토" && computerChoice === "스위스") ||
+                (userChoice === "인도인" && computerChoice === "토마토") ||
+                (userChoice === "스위스" && computerChoice === "인도인")
+            ) {
+                result = `먹는거임? `;
+            } else {
+                result = `나라임?`;
+            }
+
+            document.getElementById(
+                "result"
+            ).innerHTML = `너는 ${userChoice}을(를) 선택했고, 나는 ${computerChoice}을(를) 선택했습니다.
+                <br> ${result}`;
+        }
+        function reset() {
+            location.reload();
+        }
+    </script>
+</body>
+
+</html>
